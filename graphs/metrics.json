@@ -1,0 +1,14 @@
+{
+  "sent_count": 98,
+  "ack_count": 98,
+  "timeout_count": 0,
+  "retrans_count": 0,
+  "fail_count": 0,
+  "total_bytes": 100000,
+  "elapsed_ms": 0,
+  "throughput_kbps": 800.0,
+  "goodput_ratio": 1.0,
+  "retrans_rate": 0.0,
+  "avg_rtt_ms": 2.35,
+  "loss_rate": 0.0
+}

@@ -29,7 +29,7 @@ class NetLogger:
         self.rtt_samples    = []
 
         os.makedirs(os.path.dirname(log_file) if os.path.dirname(log_file) else ".", exist_ok=True)
-        with open(self.log_file, "w", newline="") as f:
+        with open(self.log_file, "w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
             writer.writerow(["timestamp", "elapsed_ms", "event", "seq_num", "detail", "rtt_ms", "size_bytes"])
 
@@ -37,7 +37,7 @@ class NetLogger:
         return round((time.time() - self.start_time) * 1000, 2)
 
     def _write(self, event, seq_num=-1, detail="", rtt_ms="", size_bytes=""):
-        with open(self.log_file, "a", newline="") as f:
+        with open(self.log_file, "a", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
             writer.writerow([round(time.time(), 4), self._elapsed_ms(), event, seq_num, detail, rtt_ms, size_bytes])
 
