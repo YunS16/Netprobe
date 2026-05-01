@@ -70,7 +70,7 @@ def send_file(
             ack = parse_ack_packet(raw)
             if ack and ack["ack_num"] == 0:
                 break
-        except socket.timeout:
+        except (socket.timeout, ConnectionResetError):
             continue
     else:
         print("✗ META paketi gönderilemedi, aktarım iptal.")
@@ -105,7 +105,7 @@ def send_file(
                             base = ack_num + 1
                         if base >= n:
                             all_acked.set()
-            except socket.timeout:
+            except (socket.timeout, ConnectionResetError):
                 continue
             except Exception:
                 continue
